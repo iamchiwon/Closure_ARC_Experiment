@@ -38,6 +38,17 @@ class ViewController2: UIViewController {
                                          target: self,
                                          action: #selector(onBack))
         navigationItem.setLeftBarButton(backButton, animated: true)
+        
+        //disposeBag에 등록시키지 않았다.
+        _ = Observable.from([1,2,3,4,5,6,7,8,9,10])
+            .delay(0.5, scheduler: MainScheduler.instance)
+            .do(onNext: { n in
+                self.count = n
+            })
+            .map({ "\($0)" })
+            .subscribe(onNext: { s in
+                self.countLabel.text = s
+            })
     }
     
     @objc func onBack() {
