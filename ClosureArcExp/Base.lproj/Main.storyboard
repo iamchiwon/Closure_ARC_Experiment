@@ -32,10 +32,19 @@
                                     <segue destination="wcG-Gk-xiJ" kind="show" id="FiT-We-zu1"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mqq-K0-Tcv">
+                                <rect key="frame" x="132" y="190" width="110" height="30"/>
+                                <state key="normal" title="ViewController3"/>
+                                <connections>
+                                    <segue destination="brb-Gg-IHg" kind="show" id="EiU-g9-2Tz"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="mqq-K0-Tcv" firstAttribute="centerX" secondItem="kv1-uO-dg8" secondAttribute="centerX" id="Ap0-Wa-6n3"/>
                             <constraint firstItem="oLv-Wz-dtp" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="LAX-IC-rpP"/>
+                            <constraint firstItem="mqq-K0-Tcv" firstAttribute="top" secondItem="kv1-uO-dg8" secondAttribute="bottom" constant="8" id="Qa0-sl-zjl"/>
                             <constraint firstItem="oLv-Wz-dtp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="TPZ-lp-syv"/>
                             <constraint firstItem="kv1-uO-dg8" firstAttribute="centerX" secondItem="oLv-Wz-dtp" secondAttribute="centerX" id="Vt1-RP-87Z"/>
                             <constraint firstItem="kv1-uO-dg8" firstAttribute="top" secondItem="oLv-Wz-dtp" secondAttribute="bottom" constant="8" id="qL4-9A-px4"/>
@@ -117,6 +126,43 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XXr-Zf-KAK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="117.59999999999999" y="-579.76011994002999"/>
+        </scene>
+        <!--View Controller3-->
+        <scene sceneID="00d-49-ItA">
+            <objects>
+                <viewController id="brb-Gg-IHg" customClass="ViewController3" customModule="ClosureArcExp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vNa-pT-XEl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ziv-Z2-VAO">
+                                <rect key="frame" x="182" y="114" width="11" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g4Y-1M-fnA">
+                                <rect key="frame" x="172" y="151" width="30" height="30"/>
+                                <state key="normal" title="Tap"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Ziv-Z2-VAO" firstAttribute="centerX" secondItem="vNa-pT-XEl" secondAttribute="centerX" id="25B-3Y-JJb"/>
+                            <constraint firstItem="g4Y-1M-fnA" firstAttribute="centerX" secondItem="Ziv-Z2-VAO" secondAttribute="centerX" id="Pa3-Q0-NFM"/>
+                            <constraint firstItem="Ziv-Z2-VAO" firstAttribute="top" secondItem="Z3o-Hh-yTx" secondAttribute="top" constant="50" id="Pl0-mo-0QL"/>
+                            <constraint firstItem="g4Y-1M-fnA" firstAttribute="top" secondItem="Ziv-Z2-VAO" secondAttribute="bottom" constant="16" id="reH-W3-vAN"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Z3o-Hh-yTx"/>
+                    </view>
+                    <connections>
+                        <outlet property="countLabel" destination="Ziv-Z2-VAO" id="cgf-9Y-fjG"/>
+                        <outlet property="tapButton" destination="g4Y-1M-fnA" id="ZUh-DT-f1R"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tLb-XL-7MJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1620" y="238"/>
         </scene>
     </scenes>
 </document>

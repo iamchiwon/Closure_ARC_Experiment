@@ -14,6 +14,7 @@
 		A16D7AE7212173AC007A8DEF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A16D7AE6212173AC007A8DEF /* Assets.xcassets */; };
 		A16D7AEA212173AC007A8DEF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A16D7AE8212173AC007A8DEF /* LaunchScreen.storyboard */; };
 		A16D7AF2212179EF007A8DEF /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16D7AF1212179EF007A8DEF /* ViewController2.swift */; };
+		A16D7AF42121814A007A8DEF /* ViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16D7AF32121814A007A8DEF /* ViewController3.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		A16D7AE9212173AC007A8DEF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A16D7AEB212173AC007A8DEF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A16D7AF1212179EF007A8DEF /* ViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
+		A16D7AF32121814A007A8DEF /* ViewController3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController3.swift; sourceTree = "<group>"; };
 		F07A7221DE6675A22B4C5203 /* Pods_ClosureArcExp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ClosureArcExp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -83,6 +85,7 @@
 				A16D7ADF212173AA007A8DEF /* AppDelegate.swift */,
 				A16D7AE1212173AA007A8DEF /* ViewController1.swift */,
 				A16D7AF1212179EF007A8DEF /* ViewController2.swift */,
+				A16D7AF32121814A007A8DEF /* ViewController3.swift */,
 				A16D7AE3212173AA007A8DEF /* Main.storyboard */,
 				A16D7AE6212173AC007A8DEF /* Assets.xcassets */,
 				A16D7AE8212173AC007A8DEF /* LaunchScreen.storyboard */,
@@ -207,6 +210,7 @@
 			files = (
 				A16D7AE2212173AA007A8DEF /* ViewController1.swift in Sources */,
 				A16D7AE0212173AA007A8DEF /* AppDelegate.swift in Sources */,
+				A16D7AF42121814A007A8DEF /* ViewController3.swift in Sources */,
 				A16D7AF2212179EF007A8DEF /* ViewController2.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
