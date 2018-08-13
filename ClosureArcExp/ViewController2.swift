@@ -42,6 +42,7 @@ class ViewController2: UIViewController {
     
     @objc func onBack() {
         print("ViewController2 - onBack")
+        disposeBag = DisposeBag()
         navigationController?.popViewController(animated: true)
     }
     
