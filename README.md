@@ -3,13 +3,13 @@
 ## 배경
 
 Closure 는 생성되는 시점에 클로져 내에서 접근하는 외부변수의 값을 캡춰해서 갖게 된다. struct같은 value 변수라면 복사되고 그만이겠지만, Object 라면 레퍼런스를 갖게되고, 레퍼런스 카운트가 증가하게 된다. <br/>
-이를 순환참조하고 하여 해제가 되지 않는 것을 우려하여 weak 레퍼런스를 갖도록 처리하기도 한다.
+클로저 내에서 참조를 갖게되면서 서로를 참조하는 경우를 순환참조라고 한다. 이 경우 해제가 되지 않는 것을 우려하여 weak 레퍼런스를 갖도록 처리하기도 한다. (weak 레퍼런스는 레퍼런스 카운트를 증가시키지 않는다.)
 ``` swift
 closure: { [weak self] in 
     self?.doSomething()
 }
 ```
-근데, 또 시점에서 self가 이미 메모리 해제된 상태를 unwrapping 하기위해
+근데, 또 클로져가 실행되는 시점에서 self가 이미 메모리 해제되었을 수 있으니, 이를 unwrapping 하기위해
 ```swift
 closure: { [weak self] in 
     guard let `self` = self else { return }
@@ -21,7 +21,7 @@ closure: { [weak self] in
 
 ## 목표
 
-Closure에서 메모리 캡춰의 범위와 시간을 알아보고, 최대한 꼼수를 사용하여 귀찮은 일을 없애보자.<br/>
+Closure에서 메모리 캡춰의 범위와 유효 시간을 알아보고, 최대한 꼼수를 사용하여 귀찮은 일을 없애보자.<br/>
 
 **주의 : 이 실험의 결과를 사용함으로 발생하는 다른 이슈들은 책임지지 않습니다.**
 
@@ -30,7 +30,7 @@ Closure에서 메모리 캡춰의 범위와 시간을 알아보고, 최대한 �
 ## 실험1
 
 ### 가설 : 클로져는 자신이 캡쳐한 레퍼런스를 동작이 완료된 후에 반환한다.
-### 실험
+
 [소스1](https://github.com/iamchiwon/Closure_ARC_Experiment)의 [커밋 1번](https://github.com/iamchiwon/Closure_ARC_Experiment/tree/d616a1910a16bcf27adbc3246aa36da6cb0fe6f7)
 ```swift
 class ViewController1: UIViewController {
@@ -66,8 +66,6 @@ class ViewController1: UIViewController {
 
 ### 결과
 ```
-ViewController3 - viewDidLoad (+1)
-ViewController3 - deinit (-1)
 ViewController1 - viewDidLoad (+1)
 ViewController1 - onBack (+1)
 ViewController1 - after 5 secs. (-1)
@@ -79,6 +77,7 @@ ViewController1 - deinit (-1)
 
 ## 실험2
 ### 가설 : Rx에서 사용되는 클로져는 Rx가 종료되어야 끝난다.
+<br/>
 ### 실험 2-1
 [소스1](https://github.com/iamchiwon/Closure_ARC_Experiment)의 [커밋 2번](https://github.com/iamchiwon/Closure_ARC_Experiment/tree/3128e21c70cfe6602d2f513f0daeb7d9fa991a66)
 ```swift
@@ -175,8 +174,9 @@ ViewController2 - deinit (-1)
 
 1. `[weak self]` 와 같은 귀찮은 코드를 하지 않더라도, 종료조건이나 시점을 통제함으로써 메모리를 관리할 수 있다.
 2. Rx의 경우 강제 `dispose` 시킴으로써 레퍼런스 카운트를 감소시킬 수 있다.
+<br/>
 
-#### 이 결과를 바탕으로 맘껏 `self`를 사용하지만 메모리제가가 잘 되는 예제를 만들어 보자.
+#### 응용: 이 결과를 바탕으로 `self`를 맘껏 사용하지만 메모리 해제가 잘 되는 예제를 만들어 보자.
 
 [소스1](https://github.com/iamchiwon/Closure_ARC_Experiment)의 [커밋 5번](https://github.com/iamchiwon/Closure_ARC_Experiment/tree/d36961d5f7c5ca9a1eaa7bfc017b275612d498c3)
 ```swift
@@ -187,6 +187,7 @@ override func didMove(toParentViewController parent: UIViewController?) {
 ```
 1. `ViewController`가 사라지는 시점을 잡아서 `dispose`를 강제시키면 메모리 해제를 통제할 수 있다.
 2. (상세설명 생략 - 소스 참조)
+<br/>
 
 ### 결과
 ```
