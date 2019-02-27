@@ -77,8 +77,9 @@ ViewController1 - deinit (-1)
 
 ## 실험2
 ### 가설 : Rx에서 사용되는 클로져는 Rx가 종료되어야 끝난다.
-<br/>
-### 실험 2-1
+
+#### 실험 2-1
+
 [소스1](https://github.com/iamchiwon/Closure_ARC_Experiment)의 [커밋 2번](https://github.com/iamchiwon/Closure_ARC_Experiment/tree/3128e21c70cfe6602d2f513f0daeb7d9fa991a66)
 ```swift
 tapButton.rx.tap.asObservable()
