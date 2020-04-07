@@ -50,7 +50,7 @@ class ViewController1: UIViewController {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
             self.view.backgroundColor = UIColor.red
-            print("ViewController1 - after 5 secs. (-1)")
+            print("ViewController1 - after 3 secs. (-1)")
         })
 
         navigationController?.popViewController(animated: true)
